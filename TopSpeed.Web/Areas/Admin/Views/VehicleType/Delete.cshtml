@@ -1,0 +1,40 @@
+﻿@model VehicleType
+
+<div class="container">
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h3 class="text-uppercase text-primary text-primary">
+                Delete VehicleType
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border border-1">
+
+            <form method="post" enctype="multipart/form-data">
+               
+                <input asp-for="@Model.Id" hidden/>
+                <div class="mb-3">
+                    <label asp-for="@Model.Name" class="form-label"></label>
+                    <input asp-for="@Model.Name" class="form-control" disabled/>
+                  
+                </div>
+               
+               
+                <div>
+                    <a asp-area="Admin" asp-controller="VehicleType" asp-action="Index" class="btn btn-warning">Back</a>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+
+
+        </div>
+
+        
+
+    </div>
+
+</div>
+
+

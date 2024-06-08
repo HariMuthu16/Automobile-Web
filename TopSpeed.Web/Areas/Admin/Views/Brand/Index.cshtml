@@ -1,0 +1,65 @@
+﻿
+@model List<Brand>
+
+    <div class="container">
+
+        <div class="row mb-3">
+           <div class="col-md-6 text-center">
+            <h3>Brand List</h3>
+        </div>
+        <div class="col-md-6 text-center">
+            <a asp-area="Admin" asp-controller="Brand" asp-action="Create" class="btn btn-primary">Add Brand</a>
+        </div>
+        </div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Established Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.EstablishedYear</td>
+                        <td class="d-flex align-items-center justify-content-center">
+                            <div class="btn-group w-50" role="group">
+                                <a asp-area="Admin" asp-controller="Brand" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                                <a asp-area="Admin" asp-controller="Brand" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                                <a asp-area="Admin" asp-controller="Brand" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+
+                            </div>
+                        </td>
+                     </tr>
+                }
+
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <div class="container">
+
+            <div class="row mb-3">
+                <div class="col-md-12 text-center text-uppercase text-warning">
+                    <h3>No Records Found</h3>
+                </div>
+             </div>
+        </div>
+    }
+
+    </div>
+     @section Scripts{
+    <script>
+        $('#myTable').DataTable();
+    </script>
+     }
